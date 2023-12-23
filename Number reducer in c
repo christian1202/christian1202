@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+// Function to calculate the sum of digits until a single digit is obtained
+int sumDigits(int num) {
+    int sum = 0;
+
+    // Calculate the sum of digits
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+
+    // Check if the sum has more than one digit
+    if (sum >= 10) {
+        // Recursively call the function for the sum
+        return sumDigits(sum);
+    } else {
+        // Return the final single-digit sum
+        return sum;
+    }
+}
+
+int main() {
+    int num;
+
+    // Getting user input for a number
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    // Check if the number is non-negative
+    if (num >= 0) {
+        // Calculate the repeated sum of digits until a single digit is obtained
+        int result = sumDigits(num);
+
+        // Print the final single-digit sum
+        printf("Reduce to %d\n", result);
+    } else {
+        printf("Please enter a non-negative number.\n");
+    }
+
+    return 0;
+}
