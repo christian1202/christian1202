@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+void generateSequence(int n) {
+    int sequence[n];
+    sequence[0] = 1; // The first element in the sequence
+
+    for (int i = 1; i < n; i++) {
+        sequence[i] = sequence[i - 1] * 2; // Doubling the previous value
+    }
+
+    // Printing the sequence
+    printf("The first %d numbers in the sequence are:\n", n);
+    for (int i = 0; i < n; i++) {
+        printf("%d ", sequence[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int n;
+
+    // Getting user input for the number of elements in the sequence
+    printf("Enter n: ");
+    scanf("%d", &n);
+
+    // Generating and printing the sequence
+    generateSequence(n);
+
+    return 0;
+}
